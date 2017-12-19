@@ -1,0 +1,20 @@
+﻿<?php
+$q=$_GET["q"];
+
+$con = mysqli_connect('localhost', 'root', 'myy130805010017');
+if (!$con)
+ {
+ die('Could not connect: ' . mysqli_error());
+ }
+
+mysqli_select_db("class", $con);
+
+$sql="SELECT * FROM test WHERE username ='".$q."'";
+
+$result = mysqli_query($sql,$con);
+$row = mysqli_fetch_array($result,$con);
+echo "<th>111111123456789</th>";
+echo "<td>" . $row['username'] . "</td>";
+
+mysqli_close($con);
+?>

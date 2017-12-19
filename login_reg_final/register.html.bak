@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--head部分就是设置各种关键词和风格、样式-->
+   <!--meta http-equiv="Content-Type" content="text/html; charset=utf-8"-->
+   <title>blog账号登陆注册</title>
+   <meta name="description" content="团队管理blog。" />
+   <meta name="keywords" content="账号，注册，登录，忘记密码，找回密码，Account，Sign in，登陆，团队，管理" />
+   <script type="text/javascript" charset="utf-8" src="js/register.js"></script>
+   <script type="text/javascript" charset="utf-8" src="jquery-3.2.1.js"></script>
+<!--风格设置-->
+<!--分别为整体、输入框、文字等样式-->
+<style>
+   #header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+   }
+  .bootstrap-frm {
+   margin-left:auto;
+   margin-right:auto;
+   margin-top:120px;
+   max-width: 600px;
+   background: #FFF;
+   padding: 20px 30px 20px 30px;
+   font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+   color: #888;
+   text-shadow: 1px 1px 1px #FFF;
+   border:1px solid #DDD;
+   border-radius: 5px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   }
+   #blog_head {
+   font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+   display: block;
+   border-bottom: 1px solid #DADADA;
+   margin: -10px -30px 30px -30px;
+   color: #888;
+   text-align: center;
+   }
+   .formfield input{
+    border: 1px solid #DADADA;
+    color: #888;
+    height: 40px;
+    margin-bottom: 16px;
+    margin-left: 0px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    width: 50%;
+    font-size: 12px;
+    line-height:15px;
+    box-shadow: inset 0px 1px 4px #ECECEC;
+    -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+    -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+    }
+   .formfield span {
+   width: 20%;
+   text-align: right;
+   padding-right: 10px;
+   margin-top: 10px;
+   color: #333;
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   }
+   .formfield label {
+   display: block;
+   width: 20%;
+   padding-right: 2px;
+   margin-left: 40px;
+   margin-top: 9px;
+   float:left;
+   color: #333;
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size: 15px;
+   text-align:right;
+   }
+   .formfield .button {
+   background: #FFF;
+   border: 1px solid #CCC;
+   padding: 10px 20px 10px 20px;
+   color: #333;
+   border-radius: 4px;
+   margin-left: 120px;
+   margin-right: 10px;
+   margin-top: 16px;
+   margin-bottom: 16px;
+   }
+   .formfild .button:hover {
+   color: #333;
+   background-color: #EBEBEB;
+   border-color: #ADADAD;
+   }
+
+   #footer {
+    color:black;
+    clear:both;
+    text-align:center;
+    padding:5px;
+    margin-bottom: 8px;	 
+    margin-top: 100px;	 
+   }
+</style>
+</head>
+<!--背景图，存在和本文件相同的路径下-->
+<body background="image/back.jpg">
+<!--设置整体样式-->
+<div class="bootstrap-frm">
+   <div id="blog_head">
+      <h1>blog注册</h1>
+   </div>
+   <!--以下各部分已经用空行隔开-->
+   <form action="\login_reg_final\php\reg.php" id="register-form" name="register-form" method="post">
+      
+        <div class="formfield">
+        
+      	<label for="userName">用户名:</label>
+      	<input type="text" size="30" placeholder="用户名只能包含字母和数字下划线，且长度为8到20个字节" name="userName" autocomplete="off" onblur="oBlur_check_userName()" onFocus="oFocus_userName()"> 
+        <span id="reminder_userName" style="color:red"></span>
+        <label for="password">密码:</label>
+	<input type="password" size="30" placeholder="密码只能包含英文字符及数字、下划线，长度为6~16个字符" name="first_pwd" autocomplete="off" onblur="oBlur_check_first_pwd()" onFocus="oFocus_first_pwd()"/>
+    	<span id="reminder_first_pwd" style="color:red" ></span>
+        <label for="password">请再次确认密码:</label>
+	<input type="password" size="30" placeholder="请再次输入密码" name="second_pwd" autocomplete="off" onblur="oBlur_check_second_pwd()" onFocus="oFocus_second_pwd()"/>
+    	<span id="reminder_second_pwd" style="color:red" ></span>
+
+        <label for="USTC-mail">校内邮箱验证:</label>
+      	<input type="text" size="30" placeholder="请输入校内邮箱" name="USTC-mail"/>
+        <label for="secode">验证码:</label>
+        </div>
+
+        <div class="formfild">
+      	<input type="text" size="30"  placeholder="邮箱收到的验证码" name="secode"/>
+        <button class="button" type="submit" >发送验证码</button>
+        </div>
+        <br/>
+        <input type="checkbox" name="agree" value="agree" style=" margin-left: 180px;font-size:15px;">我已阅读并同意<a href="/agreement.html" style="font-size:14px;">《用户注册协议》</a>
+
+        <div class="formfield">
+        <button class="button" type="Submit" name="Submit" value="reg" onclick="validateForm();" >提交</button>
+        <button class="button" type="reset">重置</button>
+       
+        </div>
+        <a href="\login_reg_final\login.html" style="margin-left: 200px;font-size:14px;">我已有账号，点此快速登录</a>
+   </form>
+   </div>
+   <div id="footer">
+        Copyright@000.com
+   </div>
+</body>
+</html>
