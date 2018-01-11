@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="layui/css/layui.css"  >
+  <link rel="stylesheet" href="layui/css/styles.css"  >
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+  <style>
+  
+#box{ position:fixed;left:1200px;width:250px;}.div1{width:250px;position:absolute;left:1200px;}.div2{position:fixed;_position:absolute;top:0;z-index:250;left:1200px;}  
+  
+@font-face {
+  font-family: 'title_big';   /*字体名称*/
+  src: url('layui/font/title_big.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'title_eng';   /*字体名称*/
+  src: url('layui/font/title_eng.otf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'BuffaloScript';   /*字体名称*/
+  src: url('layui/font/BuffaloScript.otf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'h1_font';   /*字体名称*/
+  src: url('layui/font/h1.ttf');       /*字体源文件*/
+}
+ #title_blog {
+   font: 25px "title_big";
+   margin-top:17px;
+   display: block;
+   color:#F8F8FF;
+   text-align: center;
+   float:right;
+   }
+#title_blog_eng {
+   font: 25px "BuffaloScript";
+   margin-top:17px;
+   display: block;
+   color: #F8F8FF;
+   text-align: center;
+   float:right;
+   }
+ .bootstrap-frm {
+   margin-left:100px;
+  
+   margin-top:30px;
+   
+   background: #FFF;
+    padding-left: 80px;
+   text-shadow: 1px 1px 1px #FFF;
+   border:1px solid #DDD;
+   border-radius: 5px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   }
+.special { background: #CD853F; height: 35px; line-height: 35px; 
+ margin-left:100px;margin-top:60px;
+padding-left: 65px; filter: progid:DXImageTransform.Microsoft.gradient(gradientType = 0, startColorstr = #3333333, endColorstr = #3333333);
+}/* 兼容IE6 透明 */
+.special li { display: inline-block; font-size: 16px; font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif; color: #FFF; padding: 0 22px; -webkit-transition: all 1s; -moz-transition: all 1s; -o-transition: all 1s; transition: all 1s;cursor:pointer; }
+.special li a{display:block}
+/*nav li:hover { background: #708090; }*/
+.special li:hover{ color: #fff; background: #D2B48C; transform:skewX(10deg);-webkit-transform:skewX(10deg);-o-transform:skewX(10deg);-ms-transform:skewX(10deg);-moz-transform:skewX(10deg) }
+#topnav_current { background: #D2B48C }/* 高亮选中颜色 */
+
+.avatar { margin: 10px auto; width: 160px; height: 160px; border-radius: 100%; overflow: hidden; }
+.avatar a { display: block; padding-top: 100px; width: 160px; background: url(http://t.cn/RCzsdCq) no-repeat; background-size: 160px 160px; }
+.avatar a span { display: block; margin-top: 63px; padding-top: 8px; width: 160px; height: 55px; text-align: center; line-height: 20px; color: #fff; background: rgba(0, 0, 0, .5); -webkit-transition: margin-top .2s ease-in-out; -moz-transition: margin-top .2s ease-in-out; -o-transition: margin-top .2s ease-in-out; transition: margin-top .2s ease-in-out; }
+.avatar a:hover span { display: block; margin-top: 0; }
+
+
+#head_portrait{width:120px;height:120px;margin-left:100px;margin-top:80px;border-radius:50%}
+
+.mainpage_header { margin: 10px;float:right;}
+.mainpage_header h1{font-size: 30px; font-family: "h1_font";}
+
+#footer {
+	margin: 10px 0 10px 0;
+	padding: 5px 0;
+	text-align: center;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	}
+#footer a {
+	padding: 3px 5px;
+	}
+
+  </style>
+</head>
+<body onLoad="get_info_function()" >
+<ul class="layui-nav">
+
+<li class="layui-nav-item">
+    <a href="javascript:;"><img class="layui-nav-img" src="http://t.cn/RCzsdCq">漫卷云舒</a>
+    <dl class="layui-nav-child">
+      <dd><a href='javascript:window.location.href="infochange.html";'>修改信息</a></dd>
+      <dd><a href="javascript:;">安全管理</a></dd>
+      <dd><a href="javascript:;">退出</a></dd>
+    </dl>
+  </li>
+
+  <li class="layui-nav-item">
+    <a href="personal_page.html">个人中心<span class="layui-badge-dot"></span></a>
+  </li>
+
+  <li class="layui-nav-item layui-this"><a href="teammanage_page.html">我的团队</a></li>
+
+  <div id="title_blog">布拉格</div>
+  <div id="title_blog_eng">BLOG</div>
+</ul>
+
+
+<div class="mainContent">
+  <div class="ulist">
+    <section> <a href="#"> <img src="layui/images/s5.jpg"></a>
+      <ul>
+        <h2><a href="#">漫卷云舒的团队空间</a></h2>
+        <p>于千万人之中，我遇见了我所遇见的人...</p>
+      </ul>
+    </section>
+  </div>
+</div>
+
+<div style="width:800px;float:left">
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+
+
+ <ul class="special layui-tab-title" id="topnav">
+    <li  class="layui-this">人员管理</li>
+    <li>任务进度</li>
+    <li>团队信息</li>
+	 <li>任务发布</li>
+ </ul>
+
+  <div class="layui-tab-content bootstrap-frm" >
+    <div class="layui-tab-item layui-show">
+	<!--内容不一样是要有，因为你可以监听tab事件（阅读下文档就是了）-->
+	<div class="layui-collapse" lay-filter="test">
+	
+	
+	
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title" id="person1">person1</h2>
+    <div class="layui-colla-content">
+      <p id="txtHint">有不少其他答案说是因为JS太差。我下面的答案已经说了，这不是根本性的原因。但除此之外，我还要纠正一些对JS具体问题的误解。JS当初是被作为脚本语言设计的，所以某些问题并不是JS设计得差或者是JS设计者的失误。比如var的作用域问题，并不是“错误”，而是当时绝大部分脚本语言都是这样的，如perl/php/sh等。模块的问题也是，脚本语言几乎都没有模块/命名空间功能。弱类型、for-in之类的问题也是，只不过现在用那些老的脚本语言的人比较少，所以很多人都误以为是JS才有的坑。另外有人说JS是半残语言，满足不了开发需求，1999年就该死。半残这个嘛，就夸张了。JS虽然有很多问题，但是设计总体还是优秀的。——来自MYY</p>
+    </div>
+  </div>
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title" id="person2">person2</h2>
+    <div class="layui-colla-content">
+      <p>因为不适合。如果希望开发长期的项目或者制作产品类网站，那么就需要实现特定的设计，为了在维护项目中可以方便地按设计师要求快速修改样式，肯定会逐步编写出各种业务组件、工具类，相当于为项目自行开发一套框架。——来自知乎@Kayo</p>
+    </div>
+  </div>
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title" id="person3">person3</h2>
+    <div class="layui-colla-content">
+      <p>在前端技术快速变革的今天，layui 仍然坚持语义化的组织模式，甚至于模块理念都是采用类AMD组织形式，并非是有意与时代背道而驰。layui 认为以jQuery为核心的开发方式还没有到完全消亡的时候，而早期市面上基于jQuery的UI都普通做得差强人意，所以需要有一个新的UI去重新为这一领域注入活力，并采用一些更科学的架构方式。
+      <br><br>
+      因此准确地说，layui 更多是面向那些追求开发简单的前端工程师们，以及所有层次的服务端程序员。</p>
+    </div>
+  </div>
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title" id="person3">person4</h2>
+    <div class="layui-colla-content">
+    <p>端工程师们，以及所有层次的端工程师们，以及所有层次的端工程师们，以及所有层次的端工程师们，以及所有层次的端工程师们，以及所有层次的端工程师们，以及所有层次的端工程师们，以及所有层次的端工程师们，以及所有层次的端工程师们，以及所有层次的端工程师们，以及所有层次的端工程师们，以及所有层次的端工程师们，以及所有层次的端工程师们，以及所有层次的</p>
+    </div>
+  </div>
+</div>
+
+
+	
+	
+	</div>
+	
+    <div class="layui-tab-item">
+	
+	
+	
+	
+<div class="layui-collapse" lay-accordion="">
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title">任务1</h2>
+    <div class="layui-colla-content layui-show">
+    
+      <div class="layui-collapse" lay-accordion="">
+        <div class="layui-colla-item">
+          <h2 class="layui-colla-title">子项1</h2>
+          <div class="layui-colla-content layui-show">
+            
+            <div class="layui-collapse" lay-accordion="">
+              <div class="layui-colla-item">
+                <h2 class="layui-colla-title">杜甫</h2>
+                <div class="layui-colla-content layui-show">
+                  伟大的诗人
+                </div>
+              </div>
+              <div class="layui-colla-item">
+                <h2 class="layui-colla-title">李白</h2>
+                <div class="layui-colla-content">
+                  <p>据说是韩国人</p>
+                </div>
+              </div>
+              <div class="layui-colla-item">
+                <h2 class="layui-colla-title">王勃</h2>
+                <div class="layui-colla-content">
+                  <p>千古绝唱《滕王阁序》</p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="layui-colla-item">
+          <h2 class="layui-colla-title">子项2</h2>
+          <div class="layui-colla-content">
+            <p>比如苏轼、李清照</p>
+          </div>
+        </div>
+        <div class="layui-colla-item">
+          <h2 class="layui-colla-title">子项3</h2>
+          <div class="layui-colla-content">
+            <p>比如贤心</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title">任务2</h2>
+    <div class="layui-colla-content">
+      <p>伟大的科学家</p>
+    </div>
+  </div>
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title">任务3</h2>
+    <div class="layui-colla-content">
+      <p>浑身散发着艺术细胞</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+	</div>
+	
+	
+	
+    <div class="layui-tab-item">
+	
+	
+	
+	
+<ul class="layui-timeline">
+  <li class="layui-timeline-item">
+    <i class="layui-icon layui-timeline-axis"></i>
+    <div class="layui-timeline-content layui-text">
+      <div class="layui-timeline-title">2018年，layui 5.0 发布。并发展成为中国最受欢迎的前端UI框架（期望）</div>
+    </div>
+  </li>
+  <li class="layui-timeline-item">
+    <i class="layui-icon layui-timeline-axis"></i>
+    <div class="layui-timeline-content layui-text">
+      <div class="layui-timeline-title">2017年，layui 里程碑版本 2.0 发布</div>
+    </div>
+  </li>
+  <li class="layui-timeline-item">
+    <i class="layui-icon layui-timeline-axis"></i>
+    <div class="layui-timeline-content layui-text">
+      <div class="layui-timeline-title">2016年，layui 首个版本发布</div>
+    </div>
+  </li>
+  <li class="layui-timeline-item">
+    <i class="layui-icon layui-timeline-axis"></i>
+    <div class="layui-timeline-content layui-text">
+      <div class="layui-timeline-title">2015年，layui 孵化</div>
+    </div>
+  </li>
+  <li class="layui-timeline-item">
+    <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i>
+    <div class="layui-timeline-content layui-text">
+      <div class="layui-timeline-title">更久前，轮子时代。维护几个独立组件：layer等</div>
+    </div>
+  </li>
+</ul>
+
+	
+	
+	</div>
+
+
+
+
+
+	<div class="layui-tab-item">
+	
+	
+	
+<form class="layui-form" action="">
+  <div class="layui-form-item">
+    <label class="layui-form-label">任务名称</label>
+    <div class="layui-input-block">
+      <input name="title" class="layui-input" type="text" placeholder="请输入任务名称" autocomplete="off" lay-verify="title">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">任务简介</label>
+    <div class="layui-input-block">
+      <input name="shortcut" class="layui-input" type="text" placeholder="请输入简介" autocomplete="off" lay-verify="required">
+    </div>
+  </div>
+ 
+  
+  <div class="layui-form-item">
+    <div class="layui-inline">
+      <label class="layui-form-label">开始日期</label>
+      <div class="layui-input-block">
+        <input name="startdate" class="layui-input" id="startdate" type="text" autocomplete="off">
+      </div>
+    </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">截止日期</label>
+      <div class="layui-input-block">
+        <input name="finishdate" class="layui-input" id="finishdate" type="text" autocomplete="off">
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="layui-form-item">
+    <label class="layui-form-label">执行团队</label>
+    <div class="layui-input-block">
+      <select name="workteam" lay-filter="aihao">
+        <option value=""></option>
+        <option value="0">布拉格</option>
+        <option value="1" selected="">拉布格</option>
+        <option value="2">布格拉</option>
+        <option value="3">拉格布</option>
+        <option value="4">格拉布</option>
+      </select>
+    </div>
+  </div>
+  
+  
+  <div class="layui-form-item">
+	<div class="layui-inline">
+      <label class="layui-form-label">子项1</label>
+      <div class="layui-input-block">
+        <input name="submission1" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+      </div>
+    </div>
+  
+    <div class="layui-inline">
+      <label class="layui-form-label">执行者</label>
+      <div class="layui-input-inline">
+        <select name="worker1" lay-search="" lay-verify="required">
+          <option value="">直接选择或搜索选择</option>
+          <option value="1">layer</option>
+          <option value="2">form</option>
+          <option value="3">layim</option>
+          <option value="4">element</option>
+          <option value="5">laytpl</option>
+          <option value="6">upload</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+   <div class="layui-form-item">
+	<div class="layui-inline">
+      <label class="layui-form-label">子项2</label>
+      <div class="layui-input-block">
+        <input name="submission2" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+      </div>
+    </div>
+  
+    <div class="layui-inline">
+      <label class="layui-form-label">执行者</label>
+      <div class="layui-input-inline">
+        <select name="worker2" lay-search="" lay-verify="required">
+          <option value="">直接选择或搜索选择</option>
+          <option value="1">layer</option>
+          <option value="2">form</option>
+          <option value="3">layim</option>
+          <option value="4">element</option>
+          <option value="5">laytpl</option>
+          <option value="6">upload</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+   <div class="layui-form-item">
+	<div class="layui-inline">
+      <label class="layui-form-label">子项3</label>
+      <div class="layui-input-block">
+        <input name="submission3" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+      </div>
+    </div>
+  
+    <div class="layui-inline">
+      <label class="layui-form-label">执行者</label>
+      <div class="layui-input-inline">
+        <select name="worker3" lay-search="" lay-verify="required">
+          <option value="">直接选择或搜索选择</option>
+          <option value="1">layer</option>
+          <option value="2">form</option>
+          <option value="3">layim</option>
+          <option value="4">element</option>
+          <option value="5">laytpl</option>
+          <option value="6">upload</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+   <div class="layui-form-item">
+	<div class="layui-inline">
+      <label class="layui-form-label">子项4</label>
+      <div class="layui-input-block">
+        <input name="submission4" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+      </div>
+    </div>
+  
+    <div class="layui-inline">
+      <label class="layui-form-label">执行者</label>
+      <div class="layui-input-inline">
+        <select name="worker4" lay-search="" lay-verify="required">
+          <option value="">直接选择或搜索选择</option>
+          <option value="1">layer</option>
+          <option value="2">form</option>
+          <option value="3">layim</option>
+          <option value="4">element</option>
+          <option value="5">laytpl</option>
+          <option value="6">upload</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+   <div class="layui-form-item">
+	<div class="layui-inline">
+      <label class="layui-form-label">子项5</label>
+      <div class="layui-input-block">
+        <input name="submission5" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+      </div>
+    </div>
+  
+    <div class="layui-inline">
+      <label class="layui-form-label">执行者</label>
+      <div class="layui-input-inline">
+        <select name="worker5" lay-search="" lay-verify="required">
+          <option value="">直接选择或搜索选择</option>
+          <option value="1">layer</option>
+          <option value="2">form</option>
+          <option value="3">layim</option>
+          <option value="4">element</option>
+          <option value="5">laytpl</option>
+          <option value="6">upload</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+   <div class="layui-form-item">
+	<div class="layui-inline">
+      <label class="layui-form-label">子项6</label>
+      <div class="layui-input-block">
+        <input name="submission6" class="layui-input" type="text" placeholder="请输入" autocomplete="off" lay-verify="required">
+      </div>
+    </div>
+  
+    <div class="layui-inline">
+      <label class="layui-form-label">执行者</label>
+      <div class="layui-input-inline">
+        <select name="worker6" lay-search="" lay-verify="required">
+          <option value="">直接选择或搜索选择</option>
+          <option value="1">layer</option>
+          <option value="2">form</option>
+          <option value="3">layim</option>
+          <option value="4">element</option>
+          <option value="5">laytpl</option>
+          <option value="6">upload</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+  <div class="layui-form-item">
+    <label class="layui-form-label">优先级</label>
+    <div class="layui-input-block">
+      <input name="superior" title="极高" type="radio" checked="" value="极高">
+      <input name="superior" title="高" type="radio" value="高">
+      <input name="superior" title="中" type="radio" value="中">
+	  <input name="superior" title="低" type="radio" value="低">
+	  <input name="superior" title="极低" type="radio" value="极低">
+    </div>
+  </div>
+  <div class="layui-form-item layui-form-text">
+    <label class="layui-form-label">备注</label>
+    <div class="layui-input-block">
+      <textarea name="sometosay" class="layui-textarea" placeholder="请输入内容"></textarea>
+    </div>
+  </div>
+  <!--<div class="layui-form-item layui-form-text">
+    <label class="layui-form-label">编辑器</label>
+    <div class="layui-input-block">
+      <textarea class="layui-textarea layui-hide" name="content" lay-verify="content" id="LAY_demo_editor"></textarea>
+    </div>
+  </div>-->
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-filter="demo1" lay-submit="">立即提交</button>
+      <button class="layui-btn layui-btn-primary" type="reset">重置</button>
+    </div>
+  </div>
+</form>
+
+	
+	
+	
+	
+    </div>
+
+
+    <div class="layui-tab-item">
+	
+	<div class="layui-tab">
+  <ul class="layui-tab-title">
+    <li class="layui-this">日志预览</li>
+    <li>日志发布</li>
+    <li>日志管理</li>
+  </ul>
+  <div class="layui-tab-content">
+    <div class="layui-tab-item layui-show">
+      1. 高度默认自适应，也可以随意固宽。
+      <br>2. Tab进行了响应式处理，所以无需担心数量多少。
+    </div>
+	
+    <div class="layui-tab-item">
+	
+	  <form>
+	  <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">编写你的日志</label>
+        <div class="layui-input-block">
+        <textarea class="layui-textarea layui-hide" name="content" lay-verify="content" id="LAY_demo_editor"></textarea>
+        </div>
+	  </div>
+	  </form>
+	</div>
+    <div class="layui-tab-item">内容3</div>
+    </div>
+</div>
+
+ 
+
+
+	  <!--<div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">编辑器</label>
+        <div class="layui-input-block">
+        <textarea class="layui-textarea layui-hide" name="content" lay-verify="content" id="LAY_demo_editor"></textarea>
+      </div>-->
+    </div>
+  
+  
+	</div>
+
+  </div>
+</div>           
+
+</div>           
+
+
+<div id="float"class="div1">
+
+
+<ul class="layui-nav layui-nav-tree layui-inline" style="margin-right:20px;margin-top:60px;" lay-filter="demo">
+  <li class="layui-nav-item layui-nav-itemed"><a href="">我的团队</a> </li>
+  <div class="avatar"><a href="about.html"><span>关于团队</span></a></div>
+  <li><p style="text-align:center;">lalala</p></li>
+  <li class="layui-nav-item layui-nav-itemed">
+    <a href="javascript:;">团队成员</a>
+    <dl class="layui-nav-child">
+      <dd><a href="javascript:;">布拉格</a></dd>
+      <dd><a href="javascript:;">拉布格</a></dd>
+      <dd><a href="javascript:;">拉格布</a></dd>
+    </dl>
+  </li>
+  <li class="layui-nav-item"><a href="">团队信息</a></li>
+  <li class="layui-nav-item"><a href="">邀请新成员</a></li>
+  <li class="layui-nav-item">
+    <a href="javascript:;">切换团队</a>
+    <dl class="layui-nav-child">
+      <dd><a href="">移动模块</a></dd>
+      <dd><a href="">后台模版</a></dd>
+      <dd><a href="">电商平台</a></dd>
+    </dl>
+  </li>
+  <li class="layui-nav-item"><a href="">返回我的主页</a></li>
+  
+</ul>
+</div>
+
+
+<!-- 这里的script是为加载数据库数据用的 -->	
+<script type="text/javascript">
+var xmlHttp
+
+
+function get_info_function()
+{
+xmlHttp=GetXmlHttpObject()
+if (xmlHttp==null)
+ {
+ alert ("Browser does not support HTTP Request")
+ return
+ }
+var url="getinfo.php"
+url=url+"?name=myy"//+改为session的用户名。。。
+url=url+"&sid="+Math.random()
+xmlHttp.onreadystatechange=stateChanged 
+xmlHttp.open("GET",url,true)
+xmlHttp.send(null)
+}
+	
+	
+	
+function stateChanged() 
+{ 
+if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
+ { 
+ document.getElementById("txtHint").innerHTML=xmlHttp.responseText 
+ } 
+}
+	
+	
+function GetXmlHttpObject()
+{
+var xmlHttp=null;
+try
+ {
+ // Firefox, Opera 8.0+, Safari
+ xmlHttp=new XMLHttpRequest();
+ }
+catch (e)
+ {
+ //Internet Explorer
+ try
+  {
+  xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+  }
+ catch (e)
+  {
+  xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+ }
+return xmlHttp;
+}
+	
+window.onload = get_info_function;	
+</script>	
+	
+	
+	
+<script src="layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+	
+	
+<script>
+layui.use('element', function(){
+  var $ = layui.jquery
+  ,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+  
+  //触发事件
+  var active = {
+    tabAdd: function(){
+      //新增一个Tab项
+      element.tabAdd('demo', {
+        title: '新选项'+ (Math.random()*1000|0) //用于演示
+        ,content: '内容'+ (Math.random()*1000|0)
+        ,id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+      })
+    }
+    ,tabDelete: function(othis){
+      //删除指定Tab项
+      element.tabDelete('demo', '44'); //删除：“商品管理”
+      
+      
+      othis.addClass('layui-btn-disabled');
+    }
+    ,tabChange: function(){
+      //切换到指定Tab项
+      element.tabChange('demo', '22'); //切换到：用户管理
+    }
+  };
+  
+  $('.site-demo-active').on('click', function(){
+    var othis = $(this), type = othis.data('type');
+    active[type] ? active[type].call(this, othis) : '';
+  });
+  
+  //Hash地址的定位
+  var layid = location.hash.replace(/^#test=/, '');
+  element.tabChange('test', layid);
+  
+  element.on('tab(test)', function(elem){
+    location.hash = 'test='+ $(this).attr('lay-id');
+  });
+  
+});
+</script>
+
+
+
+<script>
+//这里的script是用在任务发布的form上的
+layui.use(['form', 'layedit', 'laydate'], function(){
+  var form = layui.form
+  ,layer = layui.layer
+  ,layedit = layui.layedit
+  ,laydate = layui.laydate;
+  
+  //日期
+  laydate.render({
+    elem: '#startdate'
+  });
+  laydate.render({
+    elem: '#finishdate'
+  });
+  
+  //创建一个编辑器
+  var editIndex = layedit.build('LAY_demo_editor');
+ 
+  //自定义验证规则
+  form.verify({
+    title: function(value){
+      if(value.length < 5){
+        return '标题至少得5个字符啊';
+      }
+    }
+    ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+    ,content: function(value){
+      layedit.sync(editIndex);
+    }
+  });
+  
+  //监听指定开关
+  form.on('switch(switchTest)', function(data){
+    layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+      offset: '6px'
+    });
+    layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+  });
+  
+  //监听提交
+  form.on('submit(demo1)', function(data){
+    layer.alert(JSON.stringify(data.field), {
+      title: '最终的提交信息'
+    })
+    return false;
+  });
+  
+  
+});
+
+</script>
+
+<script type="text/javascript" src="gofollow.js"></script>
+
+
+</body>
+</html>
